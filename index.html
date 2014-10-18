@@ -1,33 +1,31 @@
 <html>
 <head>
-  <title>Creative Captcha</title>
-  <script src="js/processing-1.4.8.min.js"></script>
+    <title>Creative Captcha</title>
 </head>
 <body>
-    <form>
-        <input type="text" name="email" placeholder="email" /><br>
-        Are you: <select name="status">
-            <option></option>
-            <option value="great">Great</option>
-            <option value="awesome">Awesome</option>
-        </select>
-        <div id='myCaptcha'>
-        Everything is awesome...
-          <canvas data-processing-sources="mixing.pde" id="myCanvas" style="opacity:0.6">
-          </canvas>
-          <div id="msg"></div>
-        </div>
-        <input type="submit" value="Submit" />
-    </form>
-    <script src="js/jquery-2.1.1.min.js"></script>
-    <script>var captcha = '#myCaptcha';</script>
-    <script src='js/creativeCaptcha.js'></script>
-
-    <script type="application/javascript">
-         var jsString = "";
-         var printMessage = function (msg) {
-            document.getElementById('msg').innerHTML = "Message: " + msg;
-         };
-    </script>  
+<form>
+    <input type="text" name="email" placeholder="email" /><br>
+    Are you: <select name="status">
+    <option></option>
+    <option value="great">Great</option>
+    <option value="awesome">Awesome</option>
+</select>
+    <div id='myCaptcha'>
+        <canvas data-processing-sources="mixing.pde" id="myCanvas" style="opacity:0.6">
+        </canvas>
+        <div id="msg"></div>
+    </div>
+    <input type="submit" value="Submit" />
+</form>
+<script src="js/jquery-2.1.1.min.js"></script>
+<script>var captcha = '#myCaptcha';</script>
+<script src='js/creativeCaptcha.js'></script>
+<script src="js/processing-1.4.8.min.js"></script>
+<script type="application/javascript">
+    var jsString = "Hello from JavaScript!";
+    var printMessage = function (msg) {
+        document.getElementById('msg').innerHTML = "Message: " + msg;
+    };
+</script>
 </body>
 </html>

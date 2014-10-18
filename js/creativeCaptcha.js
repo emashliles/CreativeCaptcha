@@ -12,13 +12,7 @@ $(document).ready(function() {
     })
     // Add a fail catch because we can't talk to the back end
     .fail(function() {
-        $(captcha).css({
-                        "width": 300, "height": 300, 
-                        "background-image": "url(Images/BasicImages/House.png)",
-                        "background-repeat": "no-repeat",
-                        "background-position": "center", 
-                        "opacity": 0.6
-        });
+        fillCaptcha();
     });
 
     $(captcha).on('captchaInitiated', function() {
@@ -40,7 +34,7 @@ $(document).ready(function() {
             $(document).unbind("mousemove");
             // Now you can use mouseMovements
             directions = parseDirections(mouseMovements);
-            $.post('/CreativeCaptcha.WebApi/validate/basic', {'ID': captchaId, 'Movements': directions}, function(data) {
+            $.post('http://creativecaptcha-001-site1.smarterasp.net/CreativeCaptcha.WebApi/validate/basic', {'ID': captchaId, 'Movements': directions}, function(data) {
                 data = $.parseJSON(data);
                 if (data['IsHuman'] == 'true')
                 {
@@ -77,27 +71,13 @@ function fillCaptcha(data)
         captchaId = data['ID'];
     }
 
-    $("#myCanvas").css({
+    $(captcha).css({
         "width": data.Size.Width, "height": data.Size.Height,
         "background-image": "url(" + data['ImagePath'] + ")",
         "background-repeat": "no-repeat",
         "background-position": "center",
-        "opacity": 0.4
+        "opacity": 0.6
     });
-    // "Draw" the outline from mouse movement
-    var offset = $("#myCanvas").offset();
-    var color = 'red';
-    var size = '12px';
-    $("body").append(
-        $('<div></div>')
-            .css('position', 'absolute')
-            .css('top', (offset.top + data.StartPoint.YCoordinate) + 'px')
-            .css('left',(offset.left + data.StartPoint.XCoordinate)+ 'px')
-            .css('border-radius', '6px')
-            .css('width', size)
-            .css('height', size)
-            .css('background-color', color)
-    );
 
     $(captcha).trigger('captchaInitiated');
 }
@@ -109,56 +89,43 @@ function parseDirections(mouseMovements) {
         if (index > 0) {
             // Get the direction and add it if a new direction
             var direction, angle, primary, secondary;
-            if (directions.length > 0)
-            {
+            if (directions.length > 0) {
                 prev = directions[(directions.length - 1)].start;
             }
-            else
-            {
+            else {
                 prev = mouseMovements[0];
             }
             var left = prev.left - co.left;
             var top = prev.top - co.top;
-            if ((Math.abs(left) + Math.abs(top)) > 0)
-            {
-                if (top < 0)
-                {
+            if ((Math.abs(left) + Math.abs(top)) > 0) {
+                if (top < 0) {
                     primary = 'S';
                 }
-                else
-                {
+                else {
                     primary = 'N';
                 }
-                if (left < 0)
-                {
+                if (left < 0) {
                     secondary = 'E';
                 }
-                else
-                {
+                else {
                     secondary = 'W';
                 }
-                if (left == 0)
-                {
+                if (left == 0) {
                     angle = 90;
                 }
-                else if (top == 0)
-                {
+                else if (top == 0) {
                     angle = 0;
                 }
-                else
-                {
+                else {
                     var angle = Math.atan(Math.abs(top) / Math.abs(left)) * 180 / Math.PI;
                 }
-                if (angle <= 22.5)
-                {
+                if (angle <= 22.5) {
                     direction = secondary;
                 }
-                else if (angle > 22.5 && angle <= 67.5)
-                {
-                    direction =  primary + secondary;
+                else if (angle > 22.5 && angle <= 67.5) {
+                    direction = primary + secondary;
                 }
-                else
-                {
+                else {
                     direction = primary;
                 }
 
@@ -173,12 +140,10 @@ function parseDirections(mouseMovements) {
                     length += (prevDirection.top - co.top) * (prevDirection.top - co.top);
                     directions[(directions.length - 1)].length = Math.round(Math.sqrt(length));
                     delete directions[(directions.length - 1)].start;
-                    if ((mouseMovements.length - 1) == index)
-                    {
+                    if ((mouseMovements.length - 1) == index) {
                         directions.push({'direction': direction, 'length': 1});
                     }
-                    else
-                    {
+                    else {
                         directions.push({'direction': direction, 'start': {'left': co.left, 'top': co.top}});
                     }
                 }
@@ -193,8 +158,7 @@ function parseDirections(mouseMovements) {
         }
     });
     var directionsClean = [];
-    $.each(directions, function(index, direction)
-    {
+    $.each(directions, function (index, direction) {
         if (direction.length > 5) {
             directionsClean.push(direction);
         }
