@@ -15,23 +15,49 @@ namespace CreativeCaptcha.Domain.Validation
             Repo = new ImageRepository();
         }
 
-       public bool ValidateBasic(string name, List<MouseGesture> movements)
+       public bool ValidateBasic(int id, List<MouseGesture> movements)
        {
-           var captchaBasicImage = Repo.GetImageByName(name);
+           var captchaBasicImage = Repo.GetImageByID(id);
 
            if(captchaBasicImage == null)
            {
                return false;
            }
 
-           foreach(var movement in movements)
+           for(var i = 0; i >= movements.Count -1; i++ )
            {
-               if (!captchaBasicImage.Movements.Contains(movement))
+
+               if (LengthIsOK(movements.ElementAt(i).Length, captchaBasicImage.Movements.ElementAt(i).Length) && CompasDirectionIsOK(movements.ElementAt(i).Direction, captchaBasicImage.Movements.ElementAt(i).Direction)) 
                {
+                  
                    return false;
                }   
            }
            return true;
+           
+       }
+  
+
+       public bool LengthIsOK(int givenLength, int idealLength)
+       {
+           var difference = Math.Abs(givenLength - idealLength);
+
+           if( difference > 5)
+           {
+               return false;
+           }
+
+           return true;
+       }
+
+       public bool CompasDirectionIsOK(string givenDirection, string idealDirection)
+       {
+           if(givenDirection.Equals(idealDirection))
+           {
+               return true;
+           }
+
+           return false;
        }
     }
 }
