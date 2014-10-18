@@ -15,16 +15,15 @@ float my[] = new float[num];
 void setup() 
 
 {
-  //printMessage(jsString + " " + processingString);
 
   size(300, 230);
 
   smooth();
 
-  noStroke();
-
-  fill(137, 112); 
-
+  // set line color to black
+  stroke(0);
+  // and the width
+  strokeWeight(4);
 }
 
 
@@ -32,33 +31,9 @@ void draw()
 
 {
   if (mousePressed) {
-  //background(51); 
-
-  // Reads throught the entire array
-  // and shifts the values to the left
-
-  for(int i=1; i<num; i++) {
-
-    mx[i-1] = mx[i];
-
-    my[i-1] = my[i];
-
-  } 
-
-  // Add the new values to the end of the array
-
-  mx[num-1] = mouseX;
-
-  my[num-1] = mouseY;
-
-  
-
-  for(int i=0; i<num; i++) {
-
-    ellipse(mx[i], my[i], i/5, i/5);
-
+	// draw line between previous and new mouse coordinates
+	line(pmouseX,pmouseY, mouseX,mouseY);
   }
- }
 }
 
 void keyPressed() 
