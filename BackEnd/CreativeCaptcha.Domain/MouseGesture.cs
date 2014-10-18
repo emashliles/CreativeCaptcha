@@ -10,5 +10,16 @@ namespace CreativeCaptcha.Domain
     {
         public string Direction { get; set; }
         public int Length { get; set; }
+
+        public MouseGesture()
+        {
+
+        }
+
+        public MouseGesture(string direction, int length)
+        {
+            Direction = direction;
+            Length = length;
+        }
     }
 }
