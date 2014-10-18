@@ -13,28 +13,35 @@ $(document).ready(function() {
     .fail(function() {
         $(captcha).html('<img width="300" height="200" src="Images/BasicImages/House.png">');
     });
-    // Detect mouse movements
-        var mouseMovements = [];
-        var position;
-    $('html').mousemove(function(event){
-        position = {
-            x: event.pageX,
-            y: event.pageY
-        };
-        //console.log(position.x);
-        mouseMovements.push(position);
+    // Detect mouse movements on mouse down event
+    var mouseMovements = [];
+    var position;
+    $("#myCaptcha").mousedown(function() {
+        $("html").mousemove(function(event){
+            position = {
+                x: event.pageX,
+                y: event.pageY
+            };
+            mouseMovements.push(position);
+            //console.log(mouseMovements);
+            // "Draw" the outline from mouse movement
+            //var color = 'red';
+            //var size = '2px';
+            //$("body").append(
+                //$('<div></div>')
+                    //.css('position', 'absolute')
+                    //.css('top', event.pageY + 'px')
+                    //.css('left', event.pageX + 'px')
+                    //.css('width', size)
+                    //.css('height', size)
+                    //.css('background-color', color)
+            //);
+        });
+    });
+    console.log(1);
+    $("#myCaptcha").mouseup(function() {
+        console.log("Mouse is up!");
+        $("html").unbind("mousemove");
         console.log(mouseMovements);
-        // "Draw" the outline from mouse movement
-        var color = 'red';
-        var size = '2px';
-        $("body").append(
-            $('<div></div>')
-                .css('position', 'absolute')
-                .css('top', event.pageY + 'px')
-                .css('left', event.pageX + 'px')
-                .css('width', size)
-                .css('height', size)
-                .css('background-color', color)
-        );
     }); 
 });
