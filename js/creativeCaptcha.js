@@ -16,32 +16,18 @@ $(document).ready(function() {
     // Detect mouse movements on mouse down event
     var mouseMovements = [];
     var position;
-    $("#myCaptcha").mousedown(function() {
+    $(captcha).mousedown(function() {
+        // Add mouse positions in mouseMovements list
         $("html").mousemove(function(event){
             position = {
                 x: event.pageX,
                 y: event.pageY
             };
             mouseMovements.push(position);
-            //console.log(mouseMovements);
-            // "Draw" the outline from mouse movement
-            //var color = 'red';
-            //var size = '2px';
-            //$("body").append(
-                //$('<div></div>')
-                    //.css('position', 'absolute')
-                    //.css('top', event.pageY + 'px')
-                    //.css('left', event.pageX + 'px')
-                    //.css('width', size)
-                    //.css('height', size)
-                    //.css('background-color', color)
-            //);
         });
     });
-    console.log(1);
-    $("#myCaptcha").mouseup(function() {
-        console.log("Mouse is up!");
+    $(captcha).mouseup(function() {
         $("html").unbind("mousemove");
-        console.log(mouseMovements);
+        // Now you can use mouseMovements
     }); 
 });
