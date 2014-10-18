@@ -24,6 +24,17 @@ namespace CreativeCaptcha.Domain
 
         }
 
+        public void AddBasicImage(CaptchaBasicImage imageToAdd)
+        {
+            BasicImages.Add(imageToAdd);
+        }
+
+        public void AddBasicImage(string imagePath, int XCoordinate, int Ycoordinate, string direction ,int id,string description, List<MouseGesture> movements)
+        {
+            var imageToAdd = new CaptchaBasicImage(imagePath, XCoordinate, Ycoordinate, direction, id, description, movements);
+            BasicImages.Add(imageToAdd);
+        }
+
 
         public CaptchaBasicImage GetBasicImage()
         {
