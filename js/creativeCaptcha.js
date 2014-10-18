@@ -64,7 +64,7 @@ function fillCaptcha(data)
     };
     if (data == undefined)
     {
-        data['ImagePath'] = "Images/BasicImages/House.png";
+        data = {'ImagePath': "Images/BasicImages/House.png"};
     }
     else
     {
@@ -72,8 +72,8 @@ function fillCaptcha(data)
     }
 
     $(captcha).css({
-        "width": data.Size.Width, "height": data.Size.Height,
-        "background-image": "url(" + data['ImagePath'] + ")",
+        "width": 300, "height": 230,
+        "background-image": "url(" + data.ImagePath + ")",
         "background-repeat": "no-repeat",
         "background-position": "center",
         "opacity": 0.6

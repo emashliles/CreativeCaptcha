@@ -15,7 +15,6 @@ float my[] = new float[num];
 void setup() 
 
 {
-  //printMessage(jsString + " " + processingString);
 
   size(300, 230);
 

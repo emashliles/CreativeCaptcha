@@ -11,7 +11,7 @@
     <option value="awesome">Awesome</option>
 </select>
     <div id='myCaptcha'>
-        <canvas data-processing-sources="mixing.pde" id="myCanvas" style="opacity:0.6">
+        <canvas data-processing-sources="mixing.pde" id="myCanvas" style="opacity:0.6;">
         </canvas>
         <div id="msg"></div>
     </div>
@@ -21,11 +21,5 @@
 <script>var captcha = '#myCaptcha';</script>
 <script src='js/creativeCaptcha.js'></script>
 <script src="js/processing-1.4.8.min.js"></script>
-<script type="application/javascript">
-    var jsString = "Hello from JavaScript!";
-    var printMessage = function (msg) {
-        document.getElementById('msg').innerHTML = "Message: " + msg;
-    };
-</script>
 </body>
 </html>
