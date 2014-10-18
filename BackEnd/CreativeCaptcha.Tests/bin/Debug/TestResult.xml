@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!--This file represents the results of running a test suite-->
+<test-results name="C:\Users\Emma-Ashley\Documents\CreativeCaptcha\CreativeCaptcha\BackEnd\CreativeCaptcha.Tests\bin\Debug\CreativeCaptcha.Tests.dll" total="2" errors="2" failures="0" not-run="0" inconclusive="0" ignored="0" skipped="0" invalid="0" date="2014-10-18" time="19:11:21">
+  <environment nunit-version="2.6.3.13283" clr-version="2.0.50727.8009" os-version="Microsoft Windows NT 6.2.9200.0" platform="Win32NT" cwd="C:\Program Files (x86)\NUnit 2.6.3\bin" machine-name="ORWELL" user="Emma-Ashley" user-domain="ORWELL" />
+  <culture-info current-culture="en-GB" current-uiculture="en-GB" />
+  <test-suite type="Assembly" name="C:\Users\Emma-Ashley\Documents\CreativeCaptcha\CreativeCaptcha\BackEnd\CreativeCaptcha.Tests\bin\Debug\CreativeCaptcha.Tests.dll" executed="True" result="Failure" success="False" time="0.203" asserts="0">
+    <results>
+      <test-suite type="Namespace" name="CreativeCaptcha" executed="True" result="Failure" success="False" time="0.203" asserts="0">
+        <results>
+          <test-suite type="Namespace" name="Tests" executed="True" result="Failure" success="False" time="0.202" asserts="0">
+            <results>
+              <test-suite type="TestFixture" name="PostData" executed="True" result="Failure" success="False" time="0.201" asserts="0">
+                <results>
+                  <test-case name="CreativeCaptcha.Tests.PostData.complete_post_data" executed="True" result="Error" success="False" time="0.089" asserts="0">
+                    <failure>
+                      <message><![CDATA[Newtonsoft.Json.JsonReaderException : Unexpected character encountered while parsing value: ﻿. Path '', line 0, position 0.]]></message>
+                      <stack-trace><![CDATA[at Newtonsoft.Json.JsonTextReader.ParseValue()
+at Newtonsoft.Json.JsonTextReader.ReadInternal()
+at Newtonsoft.Json.JsonTextReader.Read()
+at Newtonsoft.Json.Linq.JObject.Load(JsonReader reader)
+at Newtonsoft.Json.Linq.JObject.Parse(String json)
+at CreativeCaptcha.Tests.PostData.complete_post_data() in c:\Users\Emma-Ashley\Documents\CreativeCaptcha\CreativeCaptcha\BackEnd\CreativeCaptcha.Tests\PostData.cs:line 30
+]]></stack-trace>
+                    </failure>
+                  </test-case>
+                  <test-case name="CreativeCaptcha.Tests.PostData.justname" executed="True" result="Error" success="False" time="0.091" asserts="0">
+                    <failure>
+                      <message><![CDATA[Newtonsoft.Json.JsonReaderException : Unexpected character encountered while parsing value: ﻿. Path '', line 0, position 0.]]></message>
+                      <stack-trace><![CDATA[at Newtonsoft.Json.JsonTextReader.ParseValue()
+at Newtonsoft.Json.JsonTextReader.ReadInternal()
+at Newtonsoft.Json.JsonTextReader.Read()
+at Newtonsoft.Json.Linq.JObject.Load(JsonReader reader)
+at Newtonsoft.Json.Linq.JObject.Parse(String json)
+at CreativeCaptcha.Tests.PostData.justname() in c:\Users\Emma-Ashley\Documents\CreativeCaptcha\CreativeCaptcha\BackEnd\CreativeCaptcha.Tests\PostData.cs:line 51
+]]></stack-trace>
+                    </failure>
+                  </test-case>
+                </results>
+              </test-suite>
+            </results>
+          </test-suite>
+        </results>
+      </test-suite>
+    </results>
+  </test-suite>
+</test-results>

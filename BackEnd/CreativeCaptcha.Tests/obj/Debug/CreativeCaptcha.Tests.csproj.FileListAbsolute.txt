@@ -1,0 +1,15 @@
+C:\Users\Emma-Ashley\Documents\CreativeCaptcha\CreativeCaptcha\BackEnd\CreativeCaptcha.Tests\bin\Debug\CreativeCaptcha.Tests.dll
+C:\Users\Emma-Ashley\Documents\CreativeCaptcha\CreativeCaptcha\BackEnd\CreativeCaptcha.Tests\bin\Debug\CreativeCaptcha.Tests.pdb
+C:\Users\Emma-Ashley\Documents\CreativeCaptcha\CreativeCaptcha\BackEnd\CreativeCaptcha.Tests\bin\Debug\CsQuery.dll
+C:\Users\Emma-Ashley\Documents\CreativeCaptcha\CreativeCaptcha\BackEnd\CreativeCaptcha.Tests\bin\Debug\Nancy.dll
+C:\Users\Emma-Ashley\Documents\CreativeCaptcha\CreativeCaptcha\BackEnd\CreativeCaptcha.Tests\bin\Debug\Nancy.Testing.dll
+C:\Users\Emma-Ashley\Documents\CreativeCaptcha\CreativeCaptcha\BackEnd\CreativeCaptcha.Tests\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Emma-Ashley\Documents\CreativeCaptcha\CreativeCaptcha\BackEnd\CreativeCaptcha.Tests\bin\Debug\nunit.framework.dll
+C:\Users\Emma-Ashley\Documents\CreativeCaptcha\CreativeCaptcha\BackEnd\CreativeCaptcha.Tests\bin\Debug\CsQuery.xml
+C:\Users\Emma-Ashley\Documents\CreativeCaptcha\CreativeCaptcha\BackEnd\CreativeCaptcha.Tests\bin\Debug\Nancy.xml
+C:\Users\Emma-Ashley\Documents\CreativeCaptcha\CreativeCaptcha\BackEnd\CreativeCaptcha.Tests\bin\Debug\Nancy.Testing.xml
+C:\Users\Emma-Ashley\Documents\CreativeCaptcha\CreativeCaptcha\BackEnd\CreativeCaptcha.Tests\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Emma-Ashley\Documents\CreativeCaptcha\CreativeCaptcha\BackEnd\CreativeCaptcha.Tests\bin\Debug\nunit.framework.xml
+C:\Users\Emma-Ashley\Documents\CreativeCaptcha\CreativeCaptcha\BackEnd\CreativeCaptcha.Tests\obj\Debug\CreativeCaptcha.Tests.csprojResolveAssemblyReference.cache
+C:\Users\Emma-Ashley\Documents\CreativeCaptcha\CreativeCaptcha\BackEnd\CreativeCaptcha.Tests\obj\Debug\CreativeCaptcha.Tests.dll
+C:\Users\Emma-Ashley\Documents\CreativeCaptcha\CreativeCaptcha\BackEnd\CreativeCaptcha.Tests\obj\Debug\CreativeCaptcha.Tests.pdb
