@@ -1,4 +1,4 @@
-String processingString = "Hello from Processing!";
+String processingString = "";
  
 
 // All Examples Written by Casey Reas and Ben Fry
@@ -15,7 +15,7 @@ float my[] = new float[num];
 void setup() 
 
 {
-  printMessage(jsString + " " + processingString);
+  //printMessage(jsString + " " + processingString);
 
   size(300, 230);
 

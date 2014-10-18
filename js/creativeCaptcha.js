@@ -12,14 +12,13 @@ $(document).ready(function() {
     })
     // Add a fail catch because we can't talk to the back end
     .fail(function() {
-        //$(captcha).html('<img width="300" height="200" src="Images/BasicImages/House.png">');
         $(captcha).css({
-                                    "width": 300, "height": 300, 
-                                    "background-image": "url(Images/BasicImages/House.png)",
-                                    "background-repeat": "no-repeat",
-                                    "background-position": "center", 
-                                    "opacity": 0.6
-                                });
+                        "width": 300, "height": 300, 
+                        "background-image": "url(Images/BasicImages/House.png)",
+                        "background-repeat": "no-repeat",
+                        "background-position": "center", 
+                        "opacity": 0.6
+        });
     });
 
     $(captcha).on('captchaInitiated', function() {
@@ -200,3 +199,4 @@ function parseDirections(mouseMovements) {
             directionsClean.push(direction);
         }
     });
+}
