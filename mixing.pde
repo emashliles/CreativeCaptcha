@@ -60,3 +60,9 @@ void draw()
   }
  }
 }
+
+void keyPressed() 
+{
+    if (key == 's' || key == 'S') saveFrame("myScreenshots.png");
+    if (key == DELETE || key == BACKSPACE) setup();
+}
