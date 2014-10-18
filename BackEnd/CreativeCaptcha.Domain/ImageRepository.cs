@@ -20,7 +20,7 @@ namespace CreativeCaptcha.Domain
 
 
             BasicImages = new List<CaptchaBasicImage>();
-            BasicImages.Add(new CaptchaBasicImage(@"C:\Users\Emma-Ashley\Documents\CreativeCaptcha\CreativeCaptcha\Images\Basic Images\Arrow.png", 1,2, "Arrow", movements));
+            BasicImages.Add(new CaptchaBasicImage(@"C:\Users\Emma-Ashley\Documents\CreativeCaptcha\CreativeCaptcha\Images\Basic Images\Arrow.png", 1, 2, 1, "Trace the lines of the arrow from the start point", movements));
 
         }
 
@@ -34,9 +34,9 @@ namespace CreativeCaptcha.Domain
         }
 
 
-        public CaptchaBasicImage GetImageByName(string name)
+        public CaptchaBasicImage GetImageByID(int id)
         {
-            return BasicImages.FirstOrDefault(i => i.Name == name);
+            return BasicImages.FirstOrDefault(i => i.ID == id);
         }
     }
 }

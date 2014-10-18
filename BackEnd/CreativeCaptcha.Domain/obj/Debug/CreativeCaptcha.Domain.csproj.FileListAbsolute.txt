@@ -8,3 +8,5 @@ C:\Users\Emma-Ashley\Documents\CreativeCaptcha\CreativeCaptcha\BackEnd\CreativeC
 C:\Users\Emma-Ashley\Documents\CreativeCaptcha\CreativeCaptcha\BackEnd\CreativeCaptcha.Domain\obj\Debug\CreativeCaptcha.Domain.csprojResolveAssemblyReference.cache
 C:\Users\Emma-Ashley\Documents\CreativeCaptcha\CreativeCaptcha\BackEnd\CreativeCaptcha.Domain\obj\Debug\CreativeCaptcha.Domain.dll
 C:\Users\Emma-Ashley\Documents\CreativeCaptcha\CreativeCaptcha\BackEnd\CreativeCaptcha.Domain\obj\Debug\CreativeCaptcha.Domain.pdb
+C:\Users\Emma-Ashley\Documents\CreativeCaptcha\CreativeCaptcha\BackEnd\CreativeCaptcha.Domain\obj\Debug\CreativeCaptcha.Domain.Properties.Resources.resources
+C:\Users\Emma-Ashley\Documents\CreativeCaptcha\CreativeCaptcha\BackEnd\CreativeCaptcha.Domain\obj\Debug\CreativeCaptcha.Domain.csproj.GenerateResource.Cache

@@ -15,9 +15,9 @@ namespace CreativeCaptcha.Domain.Validation
             Repo = new ImageRepository();
         }
 
-       public bool ValidateBasic(string name, List<MouseGesture> movements)
+       public bool ValidateBasic(int id, List<MouseGesture> movements)
        {
-           var captchaBasicImage = Repo.GetImageByName(name);
+           var captchaBasicImage = Repo.GetImageByID(id);
 
            if(captchaBasicImage == null)
            {
@@ -28,10 +28,16 @@ namespace CreativeCaptcha.Domain.Validation
            {
                if (!captchaBasicImage.Movements.Contains(movement))
                {
+                  // captchaBasicImage.Movements
                    return false;
                }   
            }
            return true;
        }
+
+       //public bool LengthIsOK(int givenLength, int idealLength)
+       //{
+           
+       //}
     }
 }
