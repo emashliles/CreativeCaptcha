@@ -12,12 +12,14 @@ namespace CreativeCaptcha.Domain
     {
         public int XCoordinate { get; set; }
         public int YCoordinate { get; set; }
+        public string Direction { get; set; }
 
-       public Position(int x, int y)
+       public Position(int x, int y, string direction)
        {
     
           XCoordinate = x;
           YCoordinate =y;
+          Direction = direction;
        }
     }
 }

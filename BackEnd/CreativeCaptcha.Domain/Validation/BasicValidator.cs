@@ -24,20 +24,40 @@ namespace CreativeCaptcha.Domain.Validation
                return false;
            }
 
-           foreach(var movement in movements)
+           for(var i = 0; i >= movements.Count -1; i++ )
            {
-               if (!captchaBasicImage.Movements.Contains(movement))
+
+               if (LengthIsOK(movements.ElementAt(i).Length, captchaBasicImage.Movements.ElementAt(i).Length) && CompasDirectionIsOK(movements.ElementAt(i).Direction, captchaBasicImage.Movements.ElementAt(i).Direction)) 
                {
-                  // captchaBasicImage.Movements
+                  
                    return false;
                }   
            }
            return true;
+           
+       }
+  
+
+       public bool LengthIsOK(int givenLength, int idealLength)
+       {
+           var difference = Math.Abs(givenLength - idealLength);
+
+           if( difference > 5)
+           {
+               return false;
+           }
+
+           return true;
        }
 
-       //public bool LengthIsOK(int givenLength, int idealLength)
-       //{
-           
-       //}
+       public bool CompasDirectionIsOK(string givenDirection, string idealDirection)
+       {
+           if(givenDirection.Equals(idealDirection))
+           {
+               return true;
+           }
+
+           return false;
+       }
     }
 }
