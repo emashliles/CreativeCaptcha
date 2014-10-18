@@ -14,7 +14,7 @@ namespace CreativeCaptcha.Domain
         public ImageRepository()
         {
             BasicImages = new List<CaptchaBasicImage>();
-            BasicImages.Add(new CaptchaBasicImage(@"C:\Users\Emma-Ashley\Documents\CreativeCaptcha\CreativeCaptcha\Images\Basic Images\Arrow.png", 1,2));
+            BasicImages.Add(new CaptchaBasicImage(@"C:\Users\Emma-Ashley\Documents\CreativeCaptcha\CreativeCaptcha\Images\Basic Images\Arrow.png", 1,2, "Arrow"));
 
         }
 

@@ -12,8 +12,9 @@ namespace CreativeCaptcha.Domain
         public string ImagePath { get; set; }
         public string DescriptiveSentence { get; set;}
         public Position StartPoint { get; set; }
+        public string Name { get; set; }
 
-        public CaptchaBasicImage(string imagePath, int XCoordinate, int Ycoordinate)
+        public CaptchaBasicImage(string imagePath, int XCoordinate, int Ycoordinate, string Name)
         {
             ImagePath = imagePath;
             StartPoint = new Position(XCoordinate, Ycoordinate);
