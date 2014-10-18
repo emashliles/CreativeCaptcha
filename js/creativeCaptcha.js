@@ -1,12 +1,14 @@
 $(document).ready(function() {
     var captchaId;
     // Locate the form closest to the Captcha div
-    $("#myCaptcha").parents("form").submit(function(event) {
+    $(captcha).parents("form").submit(function(event) {
         event.preventDefault();
+        console.log('hello');
     });
 
     // Request an image to trace
-    $.get('/captcha/basic', function(data) {
+    $.get('/CreativeCaptcha.WebApi/captcha/basic', function(data) {
+        data = $.parseJSON(data);
         fillCaptcha(data['Image']);
     })
     // Add a fail catch because we can't talk to the back end
@@ -33,6 +35,17 @@ $(document).ready(function() {
             $(document).unbind("mousemove");
             // Now you can use mouseMovements
             directions = parseDirections(mouseMovements);
+            $.post('/CreativeCaptcha.WebApi/validate/basic', {'ID': captchaId, 'Movements': directions}, function(data) {
+                data = $.parseJSON(data);
+                if (data['IsHuman'] == 'true')
+                {
+                    $(captcha).parents("form").unbind('submit');
+                }
+            })
+            // Lets fake a successful call
+            .fail(function() {
+                $(captcha).parents("form").unbind('submit');
+            });
         });
     });
 });
@@ -42,7 +55,8 @@ function fillCaptcha(data)
     data = {
         "ImagePath": "Images/BasicImages/House.png",
         "DescriptiveSentence": "Trace the lines of the arrow from the start point",
-        "StartPoint": {"XCoordinate": 1, "YCoordinate": 2},
+        "StartPoint": {"XCoordinate": 2, "YCoordinate": 70},
+        "Size": {"Width":248, "Height": 235},
         "ID": '1',
     };
     if (data == undefined)
@@ -55,12 +69,26 @@ function fillCaptcha(data)
     }
 
     $("#myCanvas").css({
-        "width": 300, "height": 300,
+        "width": data.Size.Width, "height": data.Size.Height,
         "background-image": "url(" + data['ImagePath'] + ")",
         "background-repeat": "no-repeat",
         "background-position": "center",
         "opacity": 0.4
     });
+    // "Draw" the outline from mouse movement
+    var offset = $("#myCanvas").offset();
+    var color = 'red';
+    var size = '12px';
+    $("body").append(
+        $('<div></div>')
+            .css('position', 'absolute')
+            .css('top', (offset.top + data.StartPoint.YCoordinate) + 'px')
+            .css('left',(offset.left + data.StartPoint.XCoordinate)+ 'px')
+            .css('border-radius', '6px')
+            .css('width', size)
+            .css('height', size)
+            .css('background-color', color)
+    );
 
     $(captcha).trigger('captchaInitiated');
 }
