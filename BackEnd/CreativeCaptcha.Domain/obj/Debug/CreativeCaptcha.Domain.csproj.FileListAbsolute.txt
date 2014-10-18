@@ -1,0 +1,10 @@
+c:\users\emma-ashley\documents\visual studio 2013\Projects\CreativeCaptcha\CreativeCaptcha.Domain\obj\Debug\CreativeCaptcha.Domain.csprojResolveAssemblyReference.cache
+c:\users\emma-ashley\documents\visual studio 2013\Projects\CreativeCaptcha\CreativeCaptcha.Domain\bin\Debug\CreativeCaptcha.Domain.dll
+c:\users\emma-ashley\documents\visual studio 2013\Projects\CreativeCaptcha\CreativeCaptcha.Domain\bin\Debug\CreativeCaptcha.Domain.pdb
+c:\users\emma-ashley\documents\visual studio 2013\Projects\CreativeCaptcha\CreativeCaptcha.Domain\obj\Debug\CreativeCaptcha.Domain.dll
+c:\users\emma-ashley\documents\visual studio 2013\Projects\CreativeCaptcha\CreativeCaptcha.Domain\obj\Debug\CreativeCaptcha.Domain.pdb
+C:\Users\Emma-Ashley\Documents\CreativeCaptcha\CreativeCaptcha\BackEnd\CreativeCaptcha.Domain\bin\Debug\CreativeCaptcha.Domain.dll
+C:\Users\Emma-Ashley\Documents\CreativeCaptcha\CreativeCaptcha\BackEnd\CreativeCaptcha.Domain\bin\Debug\CreativeCaptcha.Domain.pdb
+C:\Users\Emma-Ashley\Documents\CreativeCaptcha\CreativeCaptcha\BackEnd\CreativeCaptcha.Domain\obj\Debug\CreativeCaptcha.Domain.csprojResolveAssemblyReference.cache
+C:\Users\Emma-Ashley\Documents\CreativeCaptcha\CreativeCaptcha\BackEnd\CreativeCaptcha.Domain\obj\Debug\CreativeCaptcha.Domain.dll
+C:\Users\Emma-Ashley\Documents\CreativeCaptcha\CreativeCaptcha\BackEnd\CreativeCaptcha.Domain\obj\Debug\CreativeCaptcha.Domain.pdb

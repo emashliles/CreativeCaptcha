@@ -13,8 +13,14 @@ namespace CreativeCaptcha.Domain
 
         public ImageRepository()
         {
+            var movements = new List<MouseGesture>();
+            movements.Add(new MouseGesture("SW", 100));
+            movements.Add(new MouseGesture("S", 20));
+            movements.Add(new MouseGesture("NE", 205));
+
+
             BasicImages = new List<CaptchaBasicImage>();
-            BasicImages.Add(new CaptchaBasicImage(@"C:\Users\Emma-Ashley\Documents\CreativeCaptcha\CreativeCaptcha\Images\Basic Images\Arrow.png", 1,2));
+            BasicImages.Add(new CaptchaBasicImage(@"C:\Users\Emma-Ashley\Documents\CreativeCaptcha\CreativeCaptcha\Images\Basic Images\Arrow.png", 1,2, "Arrow", movements));
 
         }
 
@@ -27,5 +33,10 @@ namespace CreativeCaptcha.Domain
             return BasicImages.FirstOrDefault();
         }
 
+
+        public CaptchaBasicImage GetImageByName(string name)
+        {
+            return BasicImages.FirstOrDefault(i => i.Name == name);
+        }
     }
 }
