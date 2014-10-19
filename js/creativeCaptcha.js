@@ -1,13 +1,10 @@
 $(document).ready(function() {
-    console.log("I'm alive!");
+    url = "http://creativecaptcha1-001-site1.smarterasp.net/backend2/CreativeCaptcha.WebApi/";
+    var jsCaptcha = false;
     // Locate the form closest to the Captcha div
     $(captcha).parents("form").submit(function(event) {
         event.preventDefault();
         console.log('hello');
-    });
-    // Request an image to trace
-    $.get('http://creativecaptcha1-001-site1.smarterasp.net/BackEnd/CreativeCaptcha.WebApi/captcha/basic', function(data) {
-        fillCaptcha(data.Image);
     });
 
     $(captcha).on('captchaInitiated', function() {
@@ -29,17 +26,23 @@ $(document).ready(function() {
             $(document).unbind("mousemove");
             // Now you can use mouseMovements
             directions = parseDirections(mouseMovements);
-            $.post('http://creativecaptcha1-001-site1.smarterasp.net/BackEnd/CreativeCaptcha.WebApi/validate/basic', {'ID': captchaId, 'Movements': directions}, function(data) {
-                data = $.parseJSON(data);
-                if (data['IsHuman'] == 'true')
-                {
-                    $(captcha).parents("form").unbind('submit');
-                }
-            })
-            // Lets fake a successful call
-            .fail(function() {
+            console.log(JSON.stringify(directions));
+            if (jsCaptcha) {
+                $.post(url+'validate/basic', {
+                    'ID': captchaId,
+                    'Movements': directions
+                }, function (data) {
+                    data = $.parseJSON(data);
+                    if (data['IsHuman'] == 'true') {
+                        $(captcha).parents("form").unbind('submit');
+                    }
+                });
+            }
+            else
+            {
+                $('#captchaMovements').val(JSON.stringify(directions));
                 $(captcha).parents("form").unbind('submit');
-            });
+            }
         });
     });
     $(captcha).mouseup(function() {
@@ -48,10 +51,18 @@ $(document).ready(function() {
     }); 
 });
 
+function retrieveCaptcha()
+{
+    jsCaptcha = true;
+    // Request an image to trace
+    $.get(url+'/captcha/basic', function(data) {
+        fillCaptcha(data.Image);
+    });
+}
+
 function fillCaptcha(data)
 {
-    captchaId = data['ID'];
-
+    captchaId = data.ID;
     $(captcha).css({
         "width": 300, "height": 200,
         "background-image": "url(" + data.ImagePath + ")",
@@ -144,4 +155,6 @@ function parseDirections(mouseMovements) {
             directionsClean.push(direction);
         }
     });
+
+    return directionsClean;
 }
