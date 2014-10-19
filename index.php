@@ -1,6 +1,6 @@
 <?php
 session_start();
-$url = "http://creativecaptcha1-001-site1.smarterasp.net/backend6/CreativeCaptcha.WebApi/";
+$url = "http://creativecaptcha1-001-site1.smarterasp.net/backend7/CreativeCaptcha.WebApi/";
 if (isset($_POST['movements']))
 {
 	$json = json_encode(array(
@@ -24,9 +24,11 @@ curl_setopt_array($curl, array(
 		CURLOPT_RETURNTRANSFER => 1,
 		CURLOPT_URL => $url . 'captcha/basic'
 	));
-$data = (curl_exec($curl));
-$_SESSION['captchaID'] = $data->ID;
-$data->ID = 'blah';
+$data = json_decode(curl_exec($curl));
+if (isset($data->ID)) {
+	$_SESSION['captchaID'] = $data->ID;
+	$data->ID = 'blah';
+}
 ?>
 
 <html>
@@ -70,10 +72,10 @@ $data->ID = 'blah';
 					</select>
 					<br>
 					<div id='myCaptcha' class="panel panel-default" >
-						<canvas data-processing-sources="mixing.pde" id="myCanvas" style="opacity:0.6;">
+						<canvas data-processing-sources="mixing.pde" id="myCanvas" style="opacity:0.6;display:inline-block;">
 						</canvas>
+						<div id="msg" style="display:inline-block;"></div>
 					</div><br>
-					<div class="btn btn-default" id="reset">Reset</div>
 					<input type="hidden" name="movements" id="captchaMovements">
 					<input type="submit" value="Submit" class="btn btn-primary center-block"/>
 				</form>

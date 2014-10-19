@@ -1,14 +1,13 @@
 $(document).ready(function() {
-    var url = "http://creativecaptcha1-001-site1.smarterasp.net/backend6/CreativeCaptcha.WebApi/";
+    var url = "http://creativecaptcha1-001-site1.smarterasp.net/backend7/CreativeCaptcha.WebApi/";
     var jsCaptcha = false;
-    var pjs;
+
     // Locate the form closest to the Captcha div
     $(captcha).parents("form").submit(function(event) {
         event.preventDefault();
-        console.log('hello');
     });
     $(captcha).parents("form").children(':submit').attr('disabled', 'disabled')
-    getPjsInstance();
+
     $('#reset').click(function(){ pjs.setup();});
     $(captcha).on('captchaInitiated', function() {
         // Detect mouse movements on mouse down event
@@ -56,16 +55,6 @@ $(document).ready(function() {
     }); 
 });
 
-function getPjsInstance() {
-    var bound = false;
-    pjs = Processing.getInstanceById('myCanvas');
-    if(pjs != null)
-        bound = true;
-    if(!bound)
-        setTimeout(getPjsInstance, 250);
-    //console.log(pjs.setup());
-}
-
 function retrieveCaptcha()
 {
     jsCaptcha = true;
@@ -79,12 +68,13 @@ function fillCaptcha(data)
 {
     captchaId = data.ID;
     $(captcha).css({
-        "width": 450, "height": 200,
+        "width": 300, "height": 200,
         "background-image": "url(" + data.ImagePath + ")",
         "background-repeat": "no-repeat",
         "background-position": "left",
         "opacity": 0.6
     });
+    $(captcha+" #msg").text(data.DescriptiveSentence);
 
     $(captcha).trigger('captchaInitiated');
 }
