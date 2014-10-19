@@ -1,12 +1,15 @@
 $(document).ready(function() {
-    url = "http://creativecaptcha1-001-site1.smarterasp.net/backend4/CreativeCaptcha.WebApi/";
+    var url = "http://creativecaptcha1-001-site1.smarterasp.net/backend6/CreativeCaptcha.WebApi/";
     var jsCaptcha = false;
+    var pjs;
     // Locate the form closest to the Captcha div
     $(captcha).parents("form").submit(function(event) {
         event.preventDefault();
         console.log('hello');
     });
-
+    $(captcha).parents("form").children(':submit').attr('disabled', 'disabled')
+    getPjsInstance();
+    $('#reset').click(function(){ pjs.setup();});
     $(captcha).on('captchaInitiated', function() {
         // Detect mouse movements on mouse down event
         var mouseMovements = [];
@@ -35,6 +38,7 @@ $(document).ready(function() {
                     data = $.parseJSON(data);
                     if (data['IsHuman'] == 'true') {
                         $(captcha).parents("form").unbind('submit');
+                        $(captcha).parents("form").children(':submit').attr('disabled', 'disabled')
                     }
                 });
             }
@@ -42,6 +46,7 @@ $(document).ready(function() {
             {
                 $('#captchaMovements').val(JSON.stringify(directions));
                 $(captcha).parents("form").unbind('submit');
+                $(captcha).parents("form").children(':submit').attr('disabled', null)
             }
         });
     });
@@ -51,11 +56,21 @@ $(document).ready(function() {
     }); 
 });
 
+function getPjsInstance() {
+    var bound = false;
+    pjs = Processing.getInstanceById('myCanvas');
+    if(pjs != null)
+        bound = true;
+    if(!bound)
+        setTimeout(getPjsInstance, 250);
+    //console.log(pjs.setup());
+}
+
 function retrieveCaptcha()
 {
     jsCaptcha = true;
     // Request an image to trace
-    $.get(url+'/captcha/basic', function(data) {
+    $.get(url+'captcha/basic', function(data) {
         fillCaptcha(data.Image);
     });
 }
@@ -64,10 +79,10 @@ function fillCaptcha(data)
 {
     captchaId = data.ID;
     $(captcha).css({
-        "width": 300, "height": 200,
+        "width": 450, "height": 200,
         "background-image": "url(" + data.ImagePath + ")",
         "background-repeat": "no-repeat",
-        "background-position": "center",
+        "background-position": "left",
         "opacity": 0.6
     });
 

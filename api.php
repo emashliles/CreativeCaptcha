@@ -1,3 +1,24 @@
+<?php
+$url = "http://creativecaptcha1-001-site1.smarterasp.net/backend6/CreativeCaptcha.WebApi/";
+if (isset($_POST['Movements']))
+{
+	$data = json_encode(array(
+			'DescriptiveSentence' => $_POST['DescriptiveSentence'],
+			'ImagePath' => $_POST['ImagePath'],
+			'MovementsJson' => $_POST['Movements'],
+		));
+	$curl = curl_init();
+	curl_setopt_array($curl, array(
+			CURLOPT_RETURNTRANSFER => 1,
+            CURLOPT_URL => $url.'add/basic',
+            CURLOPT_POST => 1,
+            CURLOPT_POSTFIELDS => $data,
+			CURLOPT_CUSTOMREQUEST => "POST",
+			CURLOPT_HTTPHEADER => array('Content-Type: application/json', 'Content-Length: ' . strlen($data)),
+    ));
+$data = curl_exec($curl);
+}
+?>
 <html>
 <head>
     <title>Upload your Image</title>
@@ -21,7 +42,16 @@
         </div> <!-- /container -->
         <div class="col-sm-12 col-md-8 col-md-offset-2 panel panel-default">
             <div class="panel-body">
-                <form method="post" action="http://creativecaptcha1-001-site1.smarterasp.net/backend4/CreativeCaptcha.WebApi/add/basic" role="form">
+				<?php if (isset($data->Success) && $data->Success)
+				{
+					echo '<div class="alert alert-success" role="alert"><b>Awesome</b>, we\'ve added your captcha!</div>';
+				}
+				elseif (isset($data->Success))
+				{
+					echo '<div class="alert alert-danger" role="alert">Hmm, something went wrong</div>';
+				}
+				?>
+                <form method="post" role="form">
                     <!--<div class="form-group">
                         <label for="userID">User ID</label>
                         <input type="text" class="form-control" id="userID" name="userID">
@@ -36,7 +66,7 @@
                     </div>
                     <div class="form-group">
                         <label for="ImagePath">Image URL</label>
-                        <input type="text" class="form-control" id="ImagePath" name="ImagePath">
+                        <input type="text" class="form-control" id="ImagePath" placeholder="URL to image" name="ImagePath">
                     </div>
                     <div class="form-group">
                         <label for="instructions">Movements</label>
