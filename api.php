@@ -16,7 +16,7 @@ if (isset($_POST['Movements']))
 			CURLOPT_CUSTOMREQUEST => "POST",
 			CURLOPT_HTTPHEADER => array('Content-Type: application/json', 'Content-Length: ' . strlen($data)),
     ));
-$data = curl_exec($curl);
+$data = json_decode(curl_exec($curl));
 }
 ?>
 <html>

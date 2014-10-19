@@ -16,7 +16,6 @@ if (isset($_POST['movements']))
 			CURLOPT_CUSTOMREQUEST => "POST",
 			CURLOPT_HTTPHEADER => array('Content-Type: application/json', 'Content-Length: ' . strlen($json)),
 		));
-	$result = json_decode(curl_exec($curl));
 	//unset($_SESSION['captchaID']);
 }
 $curl = curl_init();
@@ -24,9 +23,11 @@ curl_setopt_array($curl, array(
 		CURLOPT_RETURNTRANSFER => 1,
 		CURLOPT_URL => $url . 'captcha/basic'
 	));
-$data = (curl_exec($curl));
-$_SESSION['captchaID'] = $data->ID;
-$data->ID = 'blah';
+$data = json_decode(curl_exec($curl));
+if (isset($data->ID)) {
+	$_SESSION['captchaID'] = $data->ID;
+	$data->ID = 'blah';
+}
 ?>
 
 <html>
@@ -70,10 +71,10 @@ $data->ID = 'blah';
 					</select>
 					<br>
 					<div id='myCaptcha' class="panel panel-default" >
-						<canvas data-processing-sources="mixing.pde" id="myCanvas" style="opacity:0.6;">
+						<canvas data-processing-sources="mixing.pde" id="myCanvas" style="opacity:0.6;display:inline-block;">
 						</canvas>
+						<div id="msg" style="display:inline-block;"></div>
 					</div><br>
-					<div class="btn btn-default" id="reset">Reset</div>
 					<input type="hidden" name="movements" id="captchaMovements">
 					<input type="submit" value="Submit" class="btn btn-primary center-block"/>
 				</form>
