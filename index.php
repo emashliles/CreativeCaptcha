@@ -1,6 +1,6 @@
 <?php
 session_start();
-$url = "http://creativecaptcha1-001-site1.smarterasp.net/backend4/CreativeCaptcha.WebApi/";
+$url = "http://creativecaptcha1-001-site1.smarterasp.net/backend5/CreativeCaptcha.WebApi/";
 if (!isset($_POST['movements']))
 {
 	$curl = curl_init();
@@ -11,18 +11,23 @@ if (!isset($_POST['movements']))
 	$data = json_decode(curl_exec($curl));
 	$_SESSION['captchaID'] = $data->ID;
 	$data->ID = 'blah';
+	print_r($data);
 }
 else {
+	$json = json_encode(array(
+		'ID' => $_SESSION['captchaID'],
+		'Movements' => json_decode($_POST['movements']),
+	));
 	$curl = curl_init();
 	curl_setopt_array($curl, array(
 			CURLOPT_RETURNTRANSFER => 1,
 			CURLOPT_URL => $url.'validate/basic',
+			CURLOPT_POSTFIELDS => $json,
 			CURLOPT_POST => 1,
-			CURLOPT_POSTFIELDS => array(
-				'ID' => $_SESSION['captchaID'],
-				'Movements' => $_POST['movements'],
-			)
+			CURLOPT_CUSTOMREQUEST => "POST",
+			CURLOPT_HTTPHEADER => array('Content-Type: application/json', 'Content-Length: ' . strlen($json)),
 		));
+	print_R($json);
 	$data = curl_exec($curl);
 	print_r($data);
 	//unset($_SESSION['captchaID']);
@@ -38,6 +43,18 @@ else {
 <body>
 <div class="row">
 	<div class="col-sm-12">
+		<!-- Main component for a primary marketing message or call to action -->
+		<div class="jumbotron">
+			<div class="row">
+				<div class="col-md-3">
+					<img src="logo.png">
+				</div>
+				<div class="col-md-9">
+					<h1>Custom Captchas</h1>
+					<p>Get more out of Creative Captcha's and upload your own branded images for your clients to trace!</p>
+				</div>
+			</div>
+		</div> <!-- /container -->
 		<div class="col-sm-12 col-md-8 col-md-offset-2 panel panel-default">
 			<div class="panel-body">
 				<form method="post">
@@ -45,16 +62,15 @@ else {
 					<input type="text" name="email" placeholder="email" class="form-control" /><br>
 					<label for="status">Are you: </label>
 					<select name="status" class="form-control">
-						<option></option>
-						<option value="great">Great</option>
 						<option value="awesome">Awesome</option>
+						<option value="great">Great</option>
 					</select>
 					<br>
-					<div id='myCaptcha'>
+					<div id='myCaptcha' class="panel panel-default" >
 						<canvas data-processing-sources="mixing.pde" id="myCanvas" style="opacity:0.6;">
 						</canvas>
-						<div id="msg"></div>
 					</div><br>
+					<div class="btn btn-default" id="reset">Reset</div>
 					<input type="hidden" name="movements" id="captchaMovements">
 					<input type="submit" value="Submit" class="btn btn-primary center-block"/>
 				</form>
