@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,10 @@ namespace CreativeCaptcha.Domain.Validation
        public bool ValidateBasic(int id, List<MouseGesture> movements)
        {
            var captchaBasicImage = Repo.GetImageByID(id);
+
+           
+          captchaBasicImage.MovementsList = JsonConvert.DeserializeObject<List<MouseGesture>>(captchaBasicImage.MovementsJson);
+           
 
            if(captchaBasicImage == null)
            {

@@ -11,5 +11,6 @@ namespace CreativeCaptcha.WebApi
         public string ImagePath { get; set; }
         public string DescriptiveSentence { get; set; }
         public string MovementsJson { get; set; }
+        public string Movements { get; set; }
     }
 }
