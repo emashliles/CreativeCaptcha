@@ -6,13 +6,8 @@ $(document).ready(function() {
         console.log('hello');
     });
     // Request an image to trace
-    $.get('/CreativeCaptcha.WebApi/captcha/basic', function(data) {
-        data = $.parseJSON(data);
-        fillCaptcha(data['Image']);
-    })
-    // Add a fail catch because we can't talk to the back end
-    .fail(function() {
-        fillCaptcha();
+    $.get('http://creativecaptcha1-001-site1.smarterasp.net/BackEnd/CreativeCaptcha.WebApi/captcha/basic', function(data) {
+        fillCaptcha(data.Image);
     });
 
     $(captcha).on('captchaInitiated', function() {
@@ -34,7 +29,7 @@ $(document).ready(function() {
             $(document).unbind("mousemove");
             // Now you can use mouseMovements
             directions = parseDirections(mouseMovements);
-            $.post('http://creativecaptcha-001-site1.smarterasp.net/CreativeCaptcha.WebApi/validate/basic', {'ID': captchaId, 'Movements': directions}, function(data) {
+            $.post('http://creativecaptcha1-001-site1.smarterasp.net/BackEnd/CreativeCaptcha.WebApi/validate/basic', {'ID': captchaId, 'Movements': directions}, function(data) {
                 data = $.parseJSON(data);
                 if (data['IsHuman'] == 'true')
                 {
@@ -55,24 +50,10 @@ $(document).ready(function() {
 
 function fillCaptcha(data)
 {
-    data = {
-        "ImagePath": "Images/BasicImages/House.png",
-        "DescriptiveSentence": "Trace the lines of the arrow from the start point",
-        "StartPoint": {"XCoordinate": 2, "YCoordinate": 70},
-        "Size": {"Width":248, "Height": 235},
-        "ID": '1',
-    };
-    if (data == undefined)
-    {
-        data = {'ImagePath': "Images/BasicImages/House.png"};
-    }
-    else
-    {
-        captchaId = data['ID'];
-    }
+    captchaId = data['ID'];
 
     $(captcha).css({
-        "width": 300, "height": 230,
+        "width": 300, "height": 200,
         "background-image": "url(" + data.ImagePath + ")",
         "background-repeat": "no-repeat",
         "background-position": "center",
