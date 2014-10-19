@@ -33,7 +33,7 @@ namespace CreativeCaptcha.Domain
             BasicImages.Add(imageToAdd);
         }
 
-        public void AddBasicImage(string imagePath, string description, List<MouseGesture> movements)
+        public void AddBasicImage(string imagePath, string description, string movements)
         {
             var imageToAdd = new CaptchaBasicImage(imagePath, description, movements);
            // BasicImages.Add(imageToAdd);

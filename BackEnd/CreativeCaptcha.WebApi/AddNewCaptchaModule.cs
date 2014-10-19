@@ -22,7 +22,7 @@ namespace CreativeCaptcha.WebApi
         private AddBasicConfirmationResponse _Validate(AddBasicRequest request)
         {
             var repo = new ImageRepository();
-            repo.AddBasicImage(request.ImagePath, request.DescriptiveSentence, request.Movements);
+            repo.AddBasicImage(request.ImagePath, request.DescriptiveSentence, request.MovementsJson);
             return new AddBasicConfirmationResponse()
             {
                 Success = true

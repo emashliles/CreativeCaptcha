@@ -26,11 +26,11 @@ namespace CreativeCaptcha.Domain
             MovementsList = movements;
         }
 
-        public CaptchaBasicImage(string imagePath, string description, List<MouseGesture> movements)
+        public CaptchaBasicImage(string imagePath, string description, string movements)
         {
             ImagePath = imagePath;
             DescriptiveSentence = description;
-            MovementsList = movements;
+          MovementsJson = movements;
         }
         public CaptchaBasicImage()
         {

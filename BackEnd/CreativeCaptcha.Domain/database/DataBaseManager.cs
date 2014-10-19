@@ -16,11 +16,11 @@ namespace CreativeCaptcha.Domain.MongoDb
         {
             using(var conn = new SqlConnection(Properties.Settings.Default.captchadb))
             {
-                var gesturelist = compressMouseGestures(imageToAdd.MovementsList);
+                //var gesturelist = compressMouseGestures(imageToAdd.MovementsList);
                 var p = new DynamicParameters();
                 p.Add("@description" ,imageToAdd.DescriptiveSentence);
                 p.Add("@imagepath", imageToAdd.ImagePath);
-                p.Add("@gesturelist", gesturelist);
+                p.Add("@gesturelist", imageToAdd.MovementsJson);
 
               var query =  conn.Query("dbo.addnewcaptcha", p ,commandType: CommandType.StoredProcedure);     
             };
@@ -34,11 +34,10 @@ namespace CreativeCaptcha.Domain.MongoDb
                 results = conn.Query<CaptchaBasicImage>("dbo.returnallcaptchas", null, commandType: CommandType.StoredProcedure).ToList();  
             }
 
-            foreach(var result in results)
-            {
-
-                result.MovementsList = JsonConvert.DeserializeObject<List<MouseGesture>>(result.MovementsJson);
-            }
+            //foreach(var result in results)
+            //{
+            //    result.MovementsList = JsonConvert.DeserializeObject<List<MouseGesture>>(result.MovementsJson);
+            //}
             
             return results;
         }
