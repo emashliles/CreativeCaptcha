@@ -25,11 +25,15 @@ namespace CreativeCaptcha.WebApi
         {
             var repo = new ImageRepository();
 
+            var image = repo.GetBasicImage();
+
 
 
             return new CaptchaResponse()
             {
-                Image = repo.GetBasicImage()
+                DescriptiveSentence = image.DescriptiveSentence,
+                ImagePath = image.ImagePath,
+                ID = image.ID
             };
 
         }

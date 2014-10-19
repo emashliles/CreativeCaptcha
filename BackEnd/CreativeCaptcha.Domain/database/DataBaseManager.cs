@@ -15,7 +15,7 @@ namespace CreativeCaptcha.Domain.MongoDb
         {
             using(var conn = new SqlConnection(Properties.Settings.Default.captchadb))
             {
-                var gesturelist = compressMouseGestures(imageToAdd.Movements);
+                var gesturelist = compressMouseGestures(imageToAdd.MovementsList);
                 var p = new DynamicParameters();
                 p.Add("@description" ,imageToAdd.DescriptiveSentence);
                 p.Add("@imagepath", imageToAdd.ImagePath);
@@ -23,6 +23,16 @@ namespace CreativeCaptcha.Domain.MongoDb
 
               var query =  conn.Query("dbo.addnewcaptcha", p ,commandType: CommandType.StoredProcedure);     
             };
+        }
+
+        public static List<CaptchaBasicImage> GetCaptchas()
+        {
+            List<CaptchaBasicImage> results;
+
+            using(var conn = new SqlConnection(Properties.Settings.Default.captchadb)){
+                results = conn.Query<CaptchaBasicImage>("dbo.returnallcaptchas", null, commandType: CommandType.StoredProcedure).ToList();  
+            }
+            return results;
         }
 
         public static string compressMouseGestures(List<MouseGesture> gestures)

@@ -14,14 +14,17 @@ namespace CreativeCaptcha.Domain
 
         public ImageRepository()
         {
-            var movements = new List<MouseGesture>();
-            movements.Add(new MouseGesture("SW", 100));
-            movements.Add(new MouseGesture("S", 20));
-            movements.Add(new MouseGesture("NE", 205));
+
+            BasicImages = DataBaseManager.GetCaptchas();
+
+            //var movements = new List<MouseGesture>();
+            //movements.Add(new MouseGesture("SW", 100));
+            //movements.Add(new MouseGesture("S", 20));
+            //movements.Add(new MouseGesture("NE", 205));
 
 
-            BasicImages = new List<CaptchaBasicImage>();
-            BasicImages.Add(new CaptchaBasicImage(@"C:\Users\Emma-Ashley\Documents\CreativeCaptcha\CreativeCaptcha\Images\Basic Images\Arrow.png", 1, 2,"S", 1, "Trace the lines of the arrow from the start point", movements));
+          //  BasicImages = new List<CaptchaBasicImage>();
+            //BasicImages.Add(new CaptchaBasicImage(@"C:\Users\Emma-Ashley\Documents\CreativeCaptcha\CreativeCaptcha\Images\Basic Images\Arrow.png", 1, 2,"S", 1, "Trace the lines of the arrow from the start point", movements));
 
         }
 
@@ -30,9 +33,9 @@ namespace CreativeCaptcha.Domain
             BasicImages.Add(imageToAdd);
         }
 
-        public void AddBasicImage(string imagePath, int id,string description, List<MouseGesture> movements)
+        public void AddBasicImage(string imagePath, string description, List<MouseGesture> movements)
         {
-            var imageToAdd = new CaptchaBasicImage(imagePath, id, description, movements);
+            var imageToAdd = new CaptchaBasicImage(imagePath, description, movements);
            // BasicImages.Add(imageToAdd);
             DataBaseManager.AddCaptcha(imageToAdd);
         }
@@ -41,9 +44,9 @@ namespace CreativeCaptcha.Domain
         public CaptchaBasicImage GetBasicImage()
         {
             var random = new Random();
-           // var randomNumber = random.Next(0, BasicImages.Count);
+            var randomNumber = random.Next(0, BasicImages.Count);
 
-            return BasicImages.FirstOrDefault();
+            return BasicImages.ElementAt(randomNumber);
         }
 
 

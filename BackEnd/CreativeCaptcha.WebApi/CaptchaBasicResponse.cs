@@ -8,7 +8,12 @@ namespace CreativeCaptcha.WebApi
 {
     public class CaptchaResponse
     {
-        public CaptchaBasicImage Image { get; set; }
+        //public CaptchaBasicImage Image { get; set; }
+
+        public string ImagePath { get; set; }
+        public string DescriptiveSentence { get; set; }
+        public int ID { get; set; }
+
 
 
     }

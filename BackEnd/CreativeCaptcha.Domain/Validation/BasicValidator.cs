@@ -27,7 +27,7 @@ namespace CreativeCaptcha.Domain.Validation
            for(var i = 0; i >= movements.Count -1; i++ )
            {
 
-               if (LengthIsOK(movements.ElementAt(i).Length, captchaBasicImage.Movements.ElementAt(i).Length) && CompasDirectionIsOK(movements.ElementAt(i).Direction, captchaBasicImage.Movements.ElementAt(i).Direction)) 
+               if (LengthIsOK(movements.ElementAt(i).Length, captchaBasicImage.MovementsList.ElementAt(i).Length) && CompasDirectionIsOK(movements.ElementAt(i).Direction, captchaBasicImage.MovementsList.ElementAt(i).Direction)) 
                {
                   
                    return false;
