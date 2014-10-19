@@ -16,7 +16,7 @@ void setup()
 
 {
 
-  size(300, 230);
+  size(300, 200);
 
   smooth();
 
