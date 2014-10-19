@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CreativeCaptcha.Domain.MongoDb;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -29,10 +30,11 @@ namespace CreativeCaptcha.Domain
             BasicImages.Add(imageToAdd);
         }
 
-        public void AddBasicImage(string imagePath, int XCoordinate, int Ycoordinate, string direction ,int id,string description, List<MouseGesture> movements)
+        public void AddBasicImage(string imagePath, int id,string description, List<MouseGesture> movements)
         {
-            var imageToAdd = new CaptchaBasicImage(imagePath, XCoordinate, Ycoordinate, direction, id, description, movements);
-            BasicImages.Add(imageToAdd);
+            var imageToAdd = new CaptchaBasicImage(imagePath, id, description, movements);
+           // BasicImages.Add(imageToAdd);
+            DataBaseManager.AddCaptcha(imageToAdd);
         }
 
 

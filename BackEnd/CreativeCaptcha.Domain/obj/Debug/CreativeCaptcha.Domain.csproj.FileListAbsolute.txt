@@ -10,3 +10,11 @@ C:\Users\Emma-Ashley\Documents\CreativeCaptcha\CreativeCaptcha\BackEnd\CreativeC
 C:\Users\Emma-Ashley\Documents\CreativeCaptcha\CreativeCaptcha\BackEnd\CreativeCaptcha.Domain\obj\Debug\CreativeCaptcha.Domain.pdb
 C:\Users\Emma-Ashley\Documents\CreativeCaptcha\CreativeCaptcha\BackEnd\CreativeCaptcha.Domain\obj\Debug\CreativeCaptcha.Domain.Properties.Resources.resources
 C:\Users\Emma-Ashley\Documents\CreativeCaptcha\CreativeCaptcha\BackEnd\CreativeCaptcha.Domain\obj\Debug\CreativeCaptcha.Domain.csproj.GenerateResource.Cache
+C:\Users\Emma-Ashley\Documents\CreativeCaptcha\CreativeCaptcha\BackEnd\CreativeCaptcha.Domain\bin\Debug\MongoDB.Bson.dll
+C:\Users\Emma-Ashley\Documents\CreativeCaptcha\CreativeCaptcha\BackEnd\CreativeCaptcha.Domain\bin\Debug\MongoDB.Driver.dll
+C:\Users\Emma-Ashley\Documents\CreativeCaptcha\CreativeCaptcha\BackEnd\CreativeCaptcha.Domain\bin\Debug\MongoDB.Bson.xml
+C:\Users\Emma-Ashley\Documents\CreativeCaptcha\CreativeCaptcha\BackEnd\CreativeCaptcha.Domain\bin\Debug\MongoDB.Driver.xml
+C:\Users\Emma-Ashley\Documents\CreativeCaptcha\CreativeCaptcha\BackEnd\CreativeCaptcha.Domain\bin\Debug\CreativeCaptcha.Domain.dll.config
+C:\Users\Emma-Ashley\Documents\CreativeCaptcha\CreativeCaptcha\BackEnd\CreativeCaptcha.Domain\bin\Debug\Dapper.dll
+C:\Users\Emma-Ashley\Documents\CreativeCaptcha\CreativeCaptcha\BackEnd\CreativeCaptcha.Domain\bin\Debug\Dapper.pdb
+C:\Users\Emma-Ashley\Documents\CreativeCaptcha\CreativeCaptcha\BackEnd\CreativeCaptcha.Domain\bin\Debug\Dapper.xml

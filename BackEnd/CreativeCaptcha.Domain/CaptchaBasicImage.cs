@@ -23,5 +23,13 @@ namespace CreativeCaptcha.Domain
             DescriptiveSentence = description;//"Trace the lines of the arrow from the start point";
             Movements = movements;
         }
+
+        public CaptchaBasicImage(string imagePath, int id,string description, List<MouseGesture> movements)
+        {
+            ImagePath = imagePath;
+            ID = id;
+            DescriptiveSentence = description;
+            Movements = movements;
+        }
     }
 }
