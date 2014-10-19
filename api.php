@@ -1,13 +1,12 @@
 <?php
-$url = "http://creativecaptcha1-001-site1.smarterasp.net/backend5/CreativeCaptcha.WebApi/";
+$url = "http://creativecaptcha1-001-site1.smarterasp.net/backend6/CreativeCaptcha.WebApi/";
 if (isset($_POST['Movements']))
 {
 	$data = json_encode(array(
 			'DescriptiveSentence' => $_POST['DescriptiveSentence'],
 			'ImagePath' => $_POST['ImagePath'],
-			'MovementList' => json_decode($_POST['Movements'],1),
+			'MovementsJson' => $_POST['Movements'],
 		));
-	print_R($data);
 	$curl = curl_init();
 	curl_setopt_array($curl, array(
 			CURLOPT_RETURNTRANSFER => 1,
@@ -18,7 +17,6 @@ if (isset($_POST['Movements']))
 			CURLOPT_HTTPHEADER => array('Content-Type: application/json', 'Content-Length: ' . strlen($data)),
     ));
 $data = curl_exec($curl);
-	print_r($data);
 }
 ?>
 <html>
@@ -44,6 +42,15 @@ $data = curl_exec($curl);
         </div> <!-- /container -->
         <div class="col-sm-12 col-md-8 col-md-offset-2 panel panel-default">
             <div class="panel-body">
+				<?php if (isset($data->Success) && $data->Success)
+				{
+					echo '<div class="alert alert-success" role="alert"><b>Awesome</b>, we\'ve added your captcha!</div>';
+				}
+				elseif (isset($data->Success))
+				{
+					echo '<div class="alert alert-danger" role="alert">Hmm, something went wrong</div>';
+				}
+				?>
                 <form method="post" role="form">
                     <!--<div class="form-group">
                         <label for="userID">User ID</label>
