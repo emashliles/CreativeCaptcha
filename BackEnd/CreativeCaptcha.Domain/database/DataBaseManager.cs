@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Dapper;
 using System.Data;
+using Newtonsoft.Json;
 
 namespace CreativeCaptcha.Domain.MongoDb
 {
@@ -32,6 +33,13 @@ namespace CreativeCaptcha.Domain.MongoDb
             using(var conn = new SqlConnection(Properties.Settings.Default.captchadb)){
                 results = conn.Query<CaptchaBasicImage>("dbo.returnallcaptchas", null, commandType: CommandType.StoredProcedure).ToList();  
             }
+
+            foreach(var result in results)
+            {
+
+                result.MovementsList = JsonConvert.DeserializeObject<List<MouseGesture>>(result.MovementsJson);
+            }
+            
             return results;
         }
 
@@ -46,6 +54,8 @@ namespace CreativeCaptcha.Domain.MongoDb
 
             return fullGestureList;
         }
+
+        
 
     }
 }

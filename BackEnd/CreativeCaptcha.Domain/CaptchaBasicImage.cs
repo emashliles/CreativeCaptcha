@@ -15,6 +15,7 @@ namespace CreativeCaptcha.Domain
         public int ID { get; set; }
         public List<MouseGesture> MovementsList { get; set; }
         public string Movements { get; set; }
+        public string MovementsJson { get; set; }
 
         public CaptchaBasicImage(string imagePath, int XCoordinate, int Ycoordinate, string direction ,int id,string description, List<MouseGesture> movements)
         {

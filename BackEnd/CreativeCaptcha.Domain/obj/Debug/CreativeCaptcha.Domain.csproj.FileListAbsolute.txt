@@ -18,3 +18,5 @@ C:\Users\Emma-Ashley\Documents\CreativeCaptcha\CreativeCaptcha\BackEnd\CreativeC
 C:\Users\Emma-Ashley\Documents\CreativeCaptcha\CreativeCaptcha\BackEnd\CreativeCaptcha.Domain\bin\Debug\Dapper.dll
 C:\Users\Emma-Ashley\Documents\CreativeCaptcha\CreativeCaptcha\BackEnd\CreativeCaptcha.Domain\bin\Debug\Dapper.pdb
 C:\Users\Emma-Ashley\Documents\CreativeCaptcha\CreativeCaptcha\BackEnd\CreativeCaptcha.Domain\bin\Debug\Dapper.xml
+C:\Users\Emma-Ashley\Documents\CreativeCaptcha\CreativeCaptcha\BackEnd\CreativeCaptcha.Domain\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Emma-Ashley\Documents\CreativeCaptcha\CreativeCaptcha\BackEnd\CreativeCaptcha.Domain\bin\Debug\Newtonsoft.Json.xml
