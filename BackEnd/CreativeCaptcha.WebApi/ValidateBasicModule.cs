@@ -29,7 +29,10 @@ namespace CreativeCaptcha.WebApi
 
             var validateResult = validator.ValidateBasic(request.ID, request.Movements);
 
-            return new ValidateBasicResponse();
+            return new ValidateBasicResponse()
+            {
+                IsHuman = validateResult
+            };
            
         }
 

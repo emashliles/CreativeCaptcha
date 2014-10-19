@@ -8,7 +8,7 @@ namespace CreativeCaptcha.WebApi
 {
     public class ValidateBasicResponse
     {
-        
+        public bool IsHuman { get; set; }
 
 
     }
