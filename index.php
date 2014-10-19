@@ -1,6 +1,6 @@
 <?php
 session_start();
-$url = "http://creativecaptcha1-001-site1.smarterasp.net/backend6/CreativeCaptcha.WebApi/";
+$url = "http://creativecaptcha1-001-site1.smarterasp.net/backend7/CreativeCaptcha.WebApi/";
 if (isset($_POST['movements']))
 {
 	$json = json_encode(array(
@@ -16,6 +16,7 @@ if (isset($_POST['movements']))
 			CURLOPT_CUSTOMREQUEST => "POST",
 			CURLOPT_HTTPHEADER => array('Content-Type: application/json', 'Content-Length: ' . strlen($json)),
 		));
+	$result = json_decode(curl_exec($curl));
 	//unset($_SESSION['captchaID']);
 }
 $curl = curl_init();

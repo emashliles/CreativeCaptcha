@@ -1,5 +1,5 @@
 $(document).ready(function() {
-    var url = "http://creativecaptcha1-001-site1.smarterasp.net/backend6/CreativeCaptcha.WebApi/";
+    var url = "http://creativecaptcha1-001-site1.smarterasp.net/backend7/CreativeCaptcha.WebApi/";
     var jsCaptcha = false;
 
     // Locate the form closest to the Captcha div
