@@ -3,7 +3,7 @@
     <title>Creative Captcha</title>
 </head>
 <body>
-<form>
+<form action="post">
     <input type="text" name="email" placeholder="email" /><br>
     Are you: <select name="status">
     <option></option>
@@ -18,8 +18,9 @@
     <input type="submit" value="Submit" />
 </form>
 <script src="js/jquery-2.1.1.min.js"></script>
+<script src="js/processing-1.4.8.min.js"></script>
 <script>var captcha = '#myCaptcha';</script>
 <script src='js/creativeCaptcha.js'></script>
-<script src="js/processing-1.4.8.min.js"></script>
+<script>$(document).ready(function() { retrieveCaptcha(); });</script>
 </body>
 </html>
