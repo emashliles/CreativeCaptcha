@@ -11,7 +11,6 @@ if (!isset($_POST['movements']))
 	$data = json_decode(curl_exec($curl));
 	$_SESSION['captchaID'] = $data->ID;
 	$data->ID = 'blah';
-	print_r($data);
 }
 else {
 	$json = json_encode(array(
@@ -27,7 +26,6 @@ else {
 			CURLOPT_CUSTOMREQUEST => "POST",
 			CURLOPT_HTTPHEADER => array('Content-Type: application/json', 'Content-Length: ' . strlen($json)),
 		));
-	print_R($json);
 	$data = curl_exec($curl);
 	print_r($data);
 	//unset($_SESSION['captchaID']);
