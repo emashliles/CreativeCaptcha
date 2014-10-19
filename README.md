@@ -13,5 +13,5 @@ Otherwise the site will commend your humanity.
 
 Further Disclaimer - The site cannot accurately determine humanity of humans.
 
-[alt text](http://captcha.dfg.gd/Images/BasicImages/CreativeCaptchaScreenshot.png "Woop")
+(http://captcha.dfg.gd/Images/BasicImages/CreativeCaptchaScreenshot.png)
 
