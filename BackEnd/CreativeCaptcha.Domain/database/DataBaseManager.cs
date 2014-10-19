@@ -15,13 +15,26 @@ namespace CreativeCaptcha.Domain.MongoDb
         {
             using(var conn = new SqlConnection(Properties.Settings.Default.captchadb))
             {
+                var gesturelist = compressMouseGestures(imageToAdd.Movements);
                 var p = new DynamicParameters();
                 p.Add("@description" ,imageToAdd.DescriptiveSentence);
                 p.Add("@imagepath", imageToAdd.ImagePath);
-                p.Add("@gesturelist", imageToAdd.Movements);
+                p.Add("@gesturelist", gesturelist);
 
               var query =  conn.Query("dbo.addnewcaptcha", p ,commandType: CommandType.StoredProcedure);     
             };
+        }
+
+        public static string compressMouseGestures(List<MouseGesture> gestures)
+        {
+            string fullGestureList = string.Empty;
+
+            foreach(var gesture in gestures)
+            {
+               fullGestureList = string.Concat(fullGestureList, gesture.Direction, gesture.Length);
+            }
+
+            return fullGestureList;
         }
 
     }
